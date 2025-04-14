@@ -6,24 +6,21 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
-import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.le_3_1.TransactionViewModel
-import com.example.le_3_1.adapters.TransactionAdapter
-import com.example.le_3_1.databinding.FragmentAllTransactionBinding
+import com.example.le_3_1.databinding.FragmentGraphBinding
 
-class AllTransactionFragment : Fragment() {
+class GraphFragment : Fragment() {
 
-    private var _binding: FragmentAllTransactionBinding? = null
+    private var _binding: FragmentGraphBinding? = null
     private val binding get() = _binding!!
 
-    private lateinit var adapter: TransactionAdapter
     private lateinit var viewModel: TransactionViewModel
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
-        _binding = FragmentAllTransactionBinding.inflate(inflater, container, false)
+        _binding = FragmentGraphBinding.inflate(inflater, container, false)
         return binding.root
     }
 
@@ -32,22 +29,22 @@ class AllTransactionFragment : Fragment() {
 
         viewModel = ViewModelProvider(requireActivity())[TransactionViewModel::class.java]
         viewModel.loadPreferences(requireContext())
-        setupRecyclerView()
-        observeTransactions()
+        updateTotals()
     }
 
-    private fun setupRecyclerView() {
-        adapter = TransactionAdapter(mutableListOf())
-        binding.rvTransactions.apply {
-            layoutManager = LinearLayoutManager(context)
-            this.adapter = this@AllTransactionFragment.adapter
-        }
-    }
+    private fun updateTotals() {
+        val transactions = viewModel.transactions.value ?: emptyList()
+        val currency = viewModel.getCurrency(requireContext())
 
-    private fun observeTransactions() {
-        viewModel.transactions.observe(viewLifecycleOwner) { transactions ->
-            adapter.updateTransactions(transactions)
-        }
+        val totalIncome = transactions
+            .filter { it.type == "Income" }
+            .sumOf { it.amount }
+        val totalExpenses = transactions
+            .filter { it.type == "Expense" }
+            .sumOf { it.amount }
+
+        binding.tvTotalIncome.text = "LKR $totalIncome"
+        binding.tvTotalExpenses.text = "LKR $totalExpenses"
     }
 
     override fun onDestroyView() {

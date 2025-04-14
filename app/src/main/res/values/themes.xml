@@ -1,9 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
 <resources xmlns:tools="http://schemas.android.com/tools">
-    <!-- Base application theme. -->
-    <style name="Base.Theme.LE_3_1" parent="Theme.Material3.DayNight.NoActionBar">
-        <!-- Customize your light theme here. -->
-        <!-- <item name="colorPrimary">@color/my_light_primary</item> -->
-    </style>
+    <!-- Base application theme (Light Theme) -->
+    <style name="Theme.LE_3_1" parent="Theme.Material3.DayNight.NoActionBar">
+        <!-- Window background -->
+        <item name="android:windowBackground">@color/white</item>
 
-    <style name="Theme.LE_3_1" parent="Base.Theme.LE_3_1" />
+        <!-- Custom attributes for 60-30-10 rule -->
+        <item name="backgroundColor">@color/white</item>           <!-- 60% Primary -->
+        <item name="secondaryBackgroundColor">@color/light_gray</item> <!-- 30% Secondary -->
+        <item name="textColor">@color/black</item>               <!-- 10% Accent -->
+        <item name="hintTextColor">@color/gray</item>            <!-- For EditText hints -->
+        <item name="accentColor">@color/button_blue</item>       <!-- Accent for buttons -->
+        <item name="incomeColor">@color/green</item>             <!-- Accent for income -->
+        <item name="expenseColor">@color/red</item>              <!-- Accent for expenses -->
+        <item name="iconTintColor">@color/blue</item>            <!-- For icon tints -->
+
+
+    </style>
 </resources>

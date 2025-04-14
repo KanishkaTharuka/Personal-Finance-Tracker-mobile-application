@@ -1,9 +1,20 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <color name="white">#FFFFFF</color>
-    <color name="blue">#115F89</color>
-    <color name="black">#000000</color>
-    <color name="green">#4CAF50</color>
-    <color name="red">#F44336</color>
-    <color name="gray">#B0BEC5</color>
+    <!-- Light Theme -->
+    <color name="white">#FFFFFF</color>           <!-- 60% Primary -->
+    <color name="light_gray">#E0E0E0</color>      <!-- 30% Secondary -->
+    <color name="black">#212121</color>           <!-- 10% Accent -->
+    <color name="button_blue">#1976D2</color>      <!-- Accent for buttons -->
+    <color name="green">#00C853</color>           <!-- Accent for income/checkmark -->
+
+    <!-- Dark Theme -->
+    <color name="dark_gray">#181818</color>        <!-- 60% Primary -->
+    <color name="medium_dark_gray">#2D2D2D</color> <!-- 30% Secondary -->
+    <color name="white_accent">#FFFFFF</color>     <!-- 10% Accent -->
+    <color name="red">#FF5252</color>             <!-- Accent for expenses -->
+
+    <!-- Existing Colors (for compatibility) -->
+    <color name="gray">#FF808080</color>
+    <color name="blue">#FF2196F3</color>
+    <color name="purple">#FF6200EE</color>
 </resources>

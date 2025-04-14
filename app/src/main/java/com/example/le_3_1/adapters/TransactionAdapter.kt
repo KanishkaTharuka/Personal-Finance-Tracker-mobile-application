@@ -14,8 +14,10 @@ class TransactionAdapter(private val transactions: MutableList<Transaction>) :
         RecyclerView.ViewHolder(binding.root) {
 
         fun bind(transaction: Transaction) {
-            binding.tvAmount.text = if (transaction.type == "Income") "+${transaction.amount}" else "-${transaction.amount}"
-            binding.tvTitle.text = transaction.description
+            val currency = binding.root.context.getSharedPreferences("FinanceTrackerPrefs", 0)
+                .getString("currency", "LKR") ?: "LKR"
+            binding.tvAmount.text = if (transaction.type == "Income") "+$currency${transaction.amount}" else "-$currency${transaction.amount}"
+            binding.tvTitle.text = transaction.title
             binding.tvCategory.text = transaction.category
             binding.tvDate.text = transaction.date
             binding.tvAmount.setTextColor(

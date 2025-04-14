@@ -1,7 +1,20 @@
-<resources xmlns:tools="http://schemas.android.com/tools">
-    <!-- Base application theme. -->
-    <style name="Base.Theme.LE_3_1" parent="Theme.Material3.DayNight.NoActionBar">
-        <!-- Customize your dark theme here. -->
-        <!-- <item name="colorPrimary">@color/my_dark_primary</item> -->
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Dark Theme -->
+    <style name="Theme.LE_3_1" parent="Theme.Material3.DayNight.NoActionBar">
+        <!-- Window background -->
+        <item name="android:windowBackground">@color/dark_gray</item>
+
+        <!-- Custom attributes for 60-30-10 rule -->
+        <item name="backgroundColor">@color/dark_gray</item>
+        <item name="secondaryBackgroundColor">@color/medium_dark_gray</item>
+        <item name="textColor">@color/white_accent</item>
+        <item name="hintTextColor">@color/gray</item>
+        <item name="accentColor">@color/button_blue</item>
+        <item name="incomeColor">@color/green</item>
+        <item name="expenseColor">@color/red</item>
+        <item name="iconTintColor">@color/blue</item>
+
+
     </style>
 </resources>

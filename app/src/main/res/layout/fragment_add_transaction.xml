@@ -6,24 +6,59 @@
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:background="@color/white"
+        android:background="?attr/backgroundColor"
         android:padding="16dp">
 
-        <!-- Header -->
         <TextView
             android:id="@+id/tv_header"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Add Transaction"
-            android:textColor="@color/black"
+            android:textColor="?attr/textColor"
             android:textSize="24sp"
             android:textStyle="bold"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
+        <LinearLayout
+            android:id="@+id/layout_type_selection"
+            android:layout_width="213dp"
+            android:layout_height="39dp"
+            android:layout_margin="15dp"
+            android:background="@drawable/type_selector_background"
+            android:orientation="horizontal"
+            android:padding="0dp"
+            app:layout_constraintBottom_toTopOf="@+id/et_title"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tv_header"
+            app:layout_constraintWidth_percent="0.9">
 
+            <Button
+                android:id="@+id/btn_expense"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
 
-        <!-- title Field -->
+                android:background="@android:color/transparent"
+                android:backgroundTint="@android:color/transparent"
+                android:text="Expense"
+                android:textColor="?attr/textColor"
+                android:textSize="14sp" />
+
+            <Button
+                android:id="@+id/btn_income"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:background="@android:color/transparent"
+                android:backgroundTint="@android:color/transparent"
+                android:text="Income"
+                android:textColor="?attr/textColor"
+
+                android:textSize="14sp" />
+        </LinearLayout>
+
         <EditText
             android:id="@+id/et_title"
             android:layout_width="0dp"
@@ -31,31 +66,29 @@
             android:background="@drawable/edit_text_background"
             android:hint="Title"
             android:padding="12dp"
-            android:textColor="@color/black"
-            android:textColorHint="@color/gray"
+            android:textColor="?attr/textColor"
+            android:textColorHint="?attr/hintTextColor"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/tv_header"
-            app:layout_constraintWidth_percent="0.9" />
+            app:layout_constraintTop_toBottomOf="@id/layout_type_selection"
+            app:layout_constraintWidth_percent="0.9"
+            android:layout_marginTop="20dp"/>
 
-        <!-- Amount Field -->
         <EditText
             android:id="@+id/et_amount"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:background="@drawable/edit_text_background"
-            android:hint="Amount"
+            android:hint="Amount (LKR)"
             android:inputType="numberDecimal"
             android:padding="12dp"
-            android:textColor="@color/black"
-            android:textColorHint="@color/gray"
+            android:textColor="?attr/textColor"
+            android:textColorHint="?attr/hintTextColor"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintWidth_percent="0.9"
-            tools:layout_editor_absoluteY="48dp"
-            app:layout_constraintTop_toBottomOf="@+id/et_title"/>
+            app:layout_constraintTop_toBottomOf="@id/et_title" />
 
-        <!-- Category Spinner -->
         <Spinner
             android:id="@+id/spinner_category"
             android:layout_width="0dp"
@@ -67,43 +100,27 @@
             app:layout_constraintTop_toBottomOf="@id/et_amount"
             app:layout_constraintWidth_percent="0.9" />
 
-        <!-- Date Field -->
         <EditText
             android:id="@+id/et_date"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:hint="Date (dd/MM/yyyy)"
             android:background="@drawable/edit_text_background"
+            android:hint="Date (dd/MM/yyyy)"
             android:padding="12dp"
-            android:textColor="@color/black"
-            android:textColorHint="@color/gray"
+            android:textColor="?attr/textColor"
+            android:textColorHint="?attr/hintTextColor"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/spinner_category"
             app:layout_constraintWidth_percent="0.9" />
 
-        <!-- Income/Expense Toggle Button -->
-        <Button
-            android:id="@+id/btn_toggle_type"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:text="Income"
-            android:background="@drawable/button_background"
-            android:backgroundTint="@color/green"
-            android:textColor="@color/white"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/et_date"
-            app:layout_constraintWidth_percent="0.9" />
-
-        <!-- Save Button -->
         <Button
             android:id="@+id/btn_save"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
+
+            android:backgroundTint="?attr/accentColor"
             android:text="Save Transaction"
-            android:background="@drawable/button_background"
-            android:backgroundTint="@color/blue"
             android:textColor="@color/white"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"

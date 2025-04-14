@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Declare custom attributes -->
+    <attr name="backgroundColor" format="color" />
+    <attr name="secondaryBackgroundColor" format="color" />
+    <attr name="textColor" format="color" />
+    <attr name="hintTextColor" format="color" />
+    <attr name="accentColor" format="color" />
+    <attr name="incomeColor" format="color" />
+    <attr name="expenseColor" format="color" />
+    <attr name="iconTintColor" format="color" />
+
+
+</resources>
