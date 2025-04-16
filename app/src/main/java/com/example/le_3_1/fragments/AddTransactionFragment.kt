@@ -23,7 +23,7 @@ class AddTransactionFragment : Fragment() {
 
     private var isIncome = false
     private lateinit var viewModel: TransactionViewModel
-    private val incomeCategories = listOf("Salary", "Gift", "Other")
+    private val incomeCategories = listOf("Salary", "Gift")
     private val expenseCategories = listOf("Food", "Transport", "Bills", "Other")
 
     override fun onCreateView(

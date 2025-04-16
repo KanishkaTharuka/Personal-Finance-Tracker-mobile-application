@@ -39,7 +39,8 @@ class MainActivity : AppCompatActivity() {
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-
+        //disable the up icon in the ActionBar
+        supportActionBar?.setDisplayHomeAsUpEnabled(false)
 
         val viewModel = TransactionViewModel()
         if (viewModel.getCurrency(this) == "LKR") {
@@ -63,6 +64,7 @@ class MainActivity : AppCompatActivity() {
         replaceFragment(allTransactionFragment)
 
         binding.bottomNavigation.setOnItemSelectedListener { item ->
+            // Reset styles for the BottomNavigationView
             when (item.itemId) {
                 R.id.menu_all_transaction -> replaceFragment(allTransactionFragment)
                 R.id.menu_graph -> replaceFragment(graphFragment)
@@ -72,6 +74,7 @@ class MainActivity : AppCompatActivity() {
             }
             true
         }
+
     }
 
     private fun replaceFragment(fragment: Fragment) {

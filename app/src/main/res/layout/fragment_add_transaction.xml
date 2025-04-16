@@ -87,7 +87,8 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintWidth_percent="0.9"
-            app:layout_constraintTop_toBottomOf="@id/et_title" />
+            app:layout_constraintTop_toBottomOf="@id/et_title"
+            android:layout_marginTop="10dp"/>
 
         <Spinner
             android:id="@+id/spinner_category"
@@ -98,7 +99,8 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/et_amount"
-            app:layout_constraintWidth_percent="0.9" />
+            app:layout_constraintWidth_percent="0.9"
+            android:layout_marginTop="10dp"/>
 
         <EditText
             android:id="@+id/et_date"
@@ -112,7 +114,8 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/spinner_category"
-            app:layout_constraintWidth_percent="0.9" />
+            app:layout_constraintWidth_percent="0.9"
+            android:layout_marginTop="10dp"/>
 
         <Button
             android:id="@+id/btn_save"

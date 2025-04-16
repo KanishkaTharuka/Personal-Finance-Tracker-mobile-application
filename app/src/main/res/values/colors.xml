@@ -17,4 +17,9 @@
     <color name="gray">#FF808080</color>
     <color name="blue">#FF2196F3</color>
     <color name="purple">#FF6200EE</color>
+
+    <color name="pink">#C84783</color>
+    <color name="ligt_purple">#9B5EF2</color>
+    <color name="yellow">#CFDC58</color>
+
 </resources>

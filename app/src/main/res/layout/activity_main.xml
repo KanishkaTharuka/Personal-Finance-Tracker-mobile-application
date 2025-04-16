@@ -20,13 +20,18 @@
             android:id="@+id/bottomNavigation"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:background="?attr/secondaryBackgroundColor"
-            app:itemIconTint="?attr/iconTintColor"
-            app:itemTextColor="?attr/textColor"
+            android:background="?attr/backgroundColor"
+            app:itemIconTint="@drawable/nav_item_color"
+            app:itemTextColor="@drawable/nav_item_color"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:menu="@menu/bottom_nav_menu" />
+            app:menu="@menu/bottom_nav_menu"
+            app:itemActiveIndicatorStyle="@null"
+
+          app:labelVisibilityMode="unlabeled"
+
+            />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>
