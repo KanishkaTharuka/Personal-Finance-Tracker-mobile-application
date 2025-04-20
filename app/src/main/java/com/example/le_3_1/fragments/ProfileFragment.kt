@@ -42,7 +42,7 @@ class ProfileFragment : Fragment() {
         val username = "ashantharuka2001"
         binding.tvUsername.text = username
         binding.tvEmail.text = "ashantharuka2001@gmail.com"
-        binding.tvProfileInitial.text = username.first().toString().uppercase()
+
 
         // Load daily reminder preference
         val prefs = requireContext().getSharedPreferences("FinanceTrackerPrefs", 0)

@@ -10,6 +10,6 @@
         android:id="@+id/spinner_dialog_currency"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="?attr/secondaryBackgroundColor"
+        android:background="@drawable/dialog_item"
         android:padding="12dp" />
 </LinearLayout>

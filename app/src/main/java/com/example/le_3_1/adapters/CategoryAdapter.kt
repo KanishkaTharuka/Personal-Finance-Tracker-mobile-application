@@ -33,7 +33,8 @@ class CategoryAdapter(private val categories: MutableList<Category>) :
 
         fun bind(category: Category) {
             binding.tvCategory.text = category.name
-            binding.tvExpense.text = "%.2f".format(category.totalExpense)
+            // Format the amount: show "0" if the amount is 0, otherwise show two decimal places
+            binding.tvExpense.text = if (category.totalExpense == 0.0) "0" else "%.2f".format(category.totalExpense)
         }
     }
 }

@@ -149,7 +149,7 @@ class CategoryFragment : Fragment() {
 
     private fun updateCategories(transactions: List<Transaction>) {
         // Define all possible categories
-        val allCategories = listOf("Food", "Transport", "Gifts", "Other", "Bills", "Salary")
+        val allCategories = listOf("Food", "Transport", "Gift", "Other", "Bills", "Salary")
 
         // Calculate total expenses for each category
         val expenseCategories = allCategories.map { categoryName ->
