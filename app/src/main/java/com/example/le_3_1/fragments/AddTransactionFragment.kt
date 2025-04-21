@@ -1,5 +1,6 @@
 package com.example.le_3_1.fragments
 
+import android.app.DatePickerDialog
 import android.graphics.Typeface
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -25,6 +26,8 @@ class AddTransactionFragment : Fragment() {
     private lateinit var viewModel: TransactionViewModel
     private val incomeCategories = listOf("Salary", "Gift")
     private val expenseCategories = listOf("Food", "Transport", "Bills", "Other")
+    private val dateFormat = SimpleDateFormat("dd/MM/yyyy", Locale.getDefault())
+    private val calendar = Calendar.getInstance()
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -46,7 +49,6 @@ class AddTransactionFragment : Fragment() {
         updateCategorySpinner()
         updateButtonStyles()
 
-        val dateFormat = SimpleDateFormat("dd/MM/yyyy", Locale.getDefault())
         binding.etDate.setText(dateFormat.format(Date()))
     }
 
@@ -60,9 +62,9 @@ class AddTransactionFragment : Fragment() {
     private fun updateButtonStyles() {
         if (isIncome) {
             //binding.btnIncome.setBackgroundResource(R.drawable.button_income_selected)
-//            binding.btnIncome.setTextColor(requireContext().getColor(R.color.white))
+            //binding.btnIncome.setTextColor(requireContext().getColor(R.color.white))
             binding.btnExpense.setBackgroundResource(R.drawable.button_expense_unselected)
-//            binding.btnExpense.setTextColor(requireContext().getColor(R.color.black))
+            //binding.btnExpense.setTextColor(requireContext().getColor(R.color.black))
 
             binding.btnIncome.setTypeface(null, Typeface.BOLD)
             binding.btnExpense.setTypeface(null, Typeface.NORMAL)
@@ -70,10 +72,10 @@ class AddTransactionFragment : Fragment() {
             binding.btnIncome.alpha = 1.0f
 
         } else {
-           //binding.btnExpense.setBackgroundResource(R.drawable.button_expense_selected)
-//            binding.btnExpense.setTextColor(requireContext().getColor(R.color.white))
+            //binding.btnExpense.setBackgroundResource(R.drawable.button_expense_selected)
+            //binding.btnExpense.setTextColor(requireContext().getColor(R.color.white))
             binding.btnIncome.setBackgroundResource(R.drawable.button_income_unselected)
-//            binding.btnIncome.setTextColor(requireContext().getColor(R.color.black))
+            //binding.btnIncome.setTextColor(requireContext().getColor(R.color.black))
 
             binding.btnExpense.setTypeface(null, Typeface.BOLD)
             binding.btnIncome.setTypeface(null, Typeface.NORMAL)
@@ -99,6 +101,25 @@ class AddTransactionFragment : Fragment() {
             if (validateInput()) {
                 saveTransaction()
             }
+        }
+
+        // Add DatePicker for the date field
+        binding.etDate.setOnClickListener {
+            val year = calendar.get(Calendar.YEAR)
+            val month = calendar.get(Calendar.MONTH)
+            val day = calendar.get(Calendar.DAY_OF_MONTH)
+
+            val datePickerDialog = DatePickerDialog(
+                requireContext(),
+                { _, selectedYear, selectedMonth, selectedDay ->
+                    calendar.set(selectedYear, selectedMonth, selectedDay)
+                    binding.etDate.setText(dateFormat.format(calendar.time))
+                },
+                year,
+                month,
+                day
+            )
+            datePickerDialog.show()
         }
     }
 
@@ -126,7 +147,15 @@ class AddTransactionFragment : Fragment() {
         val date = binding.etDate.text.toString()
         val type = if (isIncome) "Income" else "Expense"
 
-        val transaction = Transaction(amount, title, category, date, type)
+        // Create a transaction with a temporary ID (will be overwritten by TransactionViewModel)
+        val transaction = Transaction(
+            id = 0L,  // Temporary ID
+            amount = amount,
+            title = title,
+            category = category,
+            date = date,
+            type = type
+        )
         viewModel.addTransaction(transaction, requireContext())
 
         Toast.makeText(context, "Saved: $type - $amount - $category - $title", Toast.LENGTH_LONG).show()
@@ -137,6 +166,7 @@ class AddTransactionFragment : Fragment() {
         binding.etAmount.text.clear()
         binding.etTitle.text.clear()
         binding.spinnerCategory.setSelection(0)
+        binding.etDate.setText(dateFormat.format(Date()))
     }
 
     override fun onDestroyView() {

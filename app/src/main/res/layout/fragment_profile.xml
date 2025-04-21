@@ -22,8 +22,7 @@
                 android:id="@+id/tvProfileInitial"
                 android:layout_width="175dp"
                 android:layout_height="142dp"
-                android:src="@drawable/profile"
-                />
+                android:src="@drawable/profile" />
 
             <TextView
                 android:id="@+id/tv_username"
@@ -44,274 +43,329 @@
                 android:textSize="16sp" />
         </LinearLayout>
 
-        <!-- Options List -->
-        <LinearLayout
+        <!-- Options List with ScrollView -->
+        <ScrollView
             android:layout_width="match_parent"
             android:layout_height="0dp"
             android:layout_weight="1"
-            android:background="?attr/backgroundColor"
-            android:orientation="vertical"
-            android:padding="16dp">
-
-            <!-- Dark Theme Switch -->
-            <LinearLayout
-                android:id="@+id/option_theme"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="horizontal"
-                android:paddingVertical="12dp">
-
-                <ImageView
-                    android:layout_width="24dp"
-                    android:layout_height="24dp"
-                    android:src="@drawable/mode_01"
-                    />
-
-                <TextView
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:layout_marginStart="16dp"
-                    android:text="Dark Theme"
-                    android:textColor="?attr/textColor"
-                    android:textSize="16sp" />
-
-                <Switch
-                    android:id="@+id/switch_theme"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content" />
-            </LinearLayout>
+            android:fillViewport="true">
 
             <LinearLayout
-                android:id="@+id/option_language"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:orientation="horizontal"
-                android:paddingVertical="12dp">
+                android:background="?attr/backgroundColor"
+                android:orientation="vertical"
+                android:padding="16dp">
 
-                <ImageView
-                    android:layout_width="24dp"
-                    android:layout_height="24dp"
-                    android:src="@drawable/language"
-                     />
-
-                <TextView
-                    android:layout_width="0dp"
+                <!-- Dark Theme Switch -->
+                <LinearLayout
+                    android:id="@+id/option_theme"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:layout_marginStart="16dp"
-                    android:text="Language"
-                    android:textColor="?attr/textColor"
-                    android:textSize="16sp" />
+                    android:orientation="horizontal"
+                    android:paddingVertical="12dp">
 
-                <ImageView
-                    android:layout_width="20dp"
-                    android:layout_height="20dp"
-                    android:src="@drawable/baseline_arrow_forward_ios_24"
-                    android:tint="?attr/hintTextColor" />
-            </LinearLayout>
+                    <ImageView
+                        android:layout_width="24dp"
+                        android:layout_height="24dp"
+                        android:src="@drawable/mode_01" />
 
-            <LinearLayout
-                android:id="@+id/option_currency"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="horizontal"
-                android:paddingVertical="12dp">
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:layout_marginStart="16dp"
+                        android:text="Dark Theme"
+                        android:textColor="?attr/textColor"
+                        android:textSize="16sp" />
 
-                <ImageView
-                    android:layout_width="24dp"
-                    android:layout_height="24dp"
-                    android:src="@drawable/currency"
-                     />
+                    <Switch
+                        android:id="@+id/switch_theme"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content" />
+                </LinearLayout>
 
-                <TextView
-                    android:layout_width="0dp"
+                <LinearLayout
+                    android:id="@+id/option_language"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:layout_marginStart="16dp"
-                    android:text="Currency"
-                    android:textColor="?attr/textColor"
-                    android:textSize="16sp" />
+                    android:orientation="horizontal"
+                    android:paddingVertical="12dp">
 
-                <ImageView
-                    android:layout_width="20dp"
-                    android:layout_height="20dp"
-                    android:src="@drawable/baseline_arrow_forward_ios_24"
-                    android:tint="?attr/hintTextColor" />
-            </LinearLayout>
+                    <ImageView
+                        android:layout_width="24dp"
+                        android:layout_height="24dp"
+                        android:src="@drawable/language" />
 
-            <LinearLayout
-                android:id="@+id/option_budget"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="horizontal"
-                android:paddingVertical="12dp">
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:layout_marginStart="16dp"
+                        android:text="Language"
+                        android:textColor="?attr/textColor"
+                        android:textSize="16sp" />
 
-                <ImageView
-                    android:layout_width="24dp"
-                    android:layout_height="24dp"
-                    android:src="@drawable/budget_01"
-                    />
+                    <ImageView
+                        android:layout_width="20dp"
+                        android:layout_height="20dp"
+                        android:src="@drawable/baseline_arrow_forward_ios_24"
+                        android:tint="?attr/hintTextColor" />
+                </LinearLayout>
 
-                <TextView
-                    android:layout_width="0dp"
+                <LinearLayout
+                    android:id="@+id/option_currency"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:layout_marginStart="16dp"
-                    android:text="Monthly Budget"
-                    android:textColor="?attr/textColor"
-                    android:textSize="16sp" />
+                    android:orientation="horizontal"
+                    android:paddingVertical="12dp">
 
-                <ImageView
-                    android:layout_width="20dp"
-                    android:layout_height="20dp"
-                    android:src="@drawable/baseline_arrow_forward_ios_24"
-                    android:tint="?attr/hintTextColor" />
-            </LinearLayout>
+                    <ImageView
+                        android:layout_width="24dp"
+                        android:layout_height="24dp"
+                        android:src="@drawable/currency" />
 
-            <LinearLayout
-                android:id="@+id/option_change_password"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="horizontal"
-                android:paddingVertical="12dp">
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:layout_marginStart="16dp"
+                        android:text="Currency"
+                        android:textColor="?attr/textColor"
+                        android:textSize="16sp" />
 
-                <ImageView
-                    android:layout_width="24dp"
-                    android:layout_height="24dp"
-                    android:src="@drawable/lock"
-                     />
+                    <ImageView
+                        android:layout_width="20dp"
+                        android:layout_height="20dp"
+                        android:src="@drawable/baseline_arrow_forward_ios_24"
+                        android:tint="?attr/hintTextColor" />
+                </LinearLayout>
 
-                <TextView
-                    android:layout_width="0dp"
+                <LinearLayout
+                    android:id="@+id/option_budget"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:layout_marginStart="16dp"
-                    android:text="Change Password"
-                    android:textColor="?attr/textColor"
-                    android:textSize="16sp" />
+                    android:orientation="horizontal"
+                    android:paddingVertical="12dp">
 
-                <ImageView
-                    android:layout_width="20dp"
-                    android:layout_height="20dp"
-                    android:src="@drawable/baseline_arrow_forward_ios_24"
-                    android:tint="?attr/hintTextColor" />
-            </LinearLayout>
+                    <ImageView
+                        android:layout_width="24dp"
+                        android:layout_height="24dp"
+                        android:src="@drawable/budget_01" />
 
-            <LinearLayout
-                android:id="@+id/option_feedback"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="horizontal"
-                android:paddingVertical="12dp">
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:layout_marginStart="16dp"
+                        android:text="Monthly Budget"
+                        android:textColor="?attr/textColor"
+                        android:textSize="16sp" />
 
-                <ImageView
-                    android:layout_width="24dp"
-                    android:layout_height="24dp"
-                    android:src="@drawable/share"
-                     />
+                    <ImageView
+                        android:layout_width="20dp"
+                        android:layout_height="20dp"
+                        android:src="@drawable/baseline_arrow_forward_ios_24"
+                        android:tint="?attr/hintTextColor" />
+                </LinearLayout>
 
-                <TextView
-                    android:layout_width="0dp"
+                <LinearLayout
+                    android:id="@+id/option_change_password"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:layout_marginStart="16dp"
-                    android:text="Feedback"
-                    android:textColor="?attr/textColor"
-                    android:textSize="16sp" />
+                    android:orientation="horizontal"
+                    android:paddingVertical="12dp">
 
-                <ImageView
-                    android:layout_width="20dp"
-                    android:layout_height="20dp"
-                    android:src="@drawable/baseline_arrow_forward_ios_24"
-                    android:tint="?attr/hintTextColor" />
-            </LinearLayout>
+                    <ImageView
+                        android:layout_width="24dp"
+                        android:layout_height="24dp"
+                        android:src="@drawable/lock" />
 
-            <LinearLayout
-                android:id="@+id/option_rate_support"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="horizontal"
-                android:paddingVertical="12dp">
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:layout_marginStart="16dp"
+                        android:text="Change Password"
+                        android:textColor="?attr/textColor"
+                        android:textSize="16sp" />
 
-                <ImageView
-                    android:layout_width="24dp"
-                    android:layout_height="24dp"
-                    android:src="@drawable/rate_01"
-                     />
+                    <ImageView
+                        android:layout_width="20dp"
+                        android:layout_height="20dp"
+                        android:src="@drawable/baseline_arrow_forward_ios_24"
+                        android:tint="?attr/hintTextColor" />
+                </LinearLayout>
 
-                <TextView
-                    android:layout_width="0dp"
+                <LinearLayout
+                    android:id="@+id/option_feedback"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:layout_marginStart="16dp"
-                    android:text="Rate and Support"
-                    android:textColor="?attr/textColor"
-                    android:textSize="16sp" />
+                    android:orientation="horizontal"
+                    android:paddingVertical="12dp">
 
-                <ImageView
-                    android:layout_width="20dp"
-                    android:layout_height="20dp"
-                    android:src="@drawable/baseline_arrow_forward_ios_24"
-                    android:tint="?attr/hintTextColor" />
-            </LinearLayout>
+                    <ImageView
+                        android:layout_width="24dp"
+                        android:layout_height="24dp"
+                        android:src="@drawable/share" />
 
-            <LinearLayout
-                android:id="@+id/option_settings"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="horizontal"
-                android:paddingVertical="12dp">
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:layout_marginStart="16dp"
+                        android:text="Feedback"
+                        android:textColor="?attr/textColor"
+                        android:textSize="16sp" />
 
-                <ImageView
-                    android:layout_width="24dp"
-                    android:layout_height="24dp"
-                    android:src="@drawable/setting"
-                     />
+                    <ImageView
+                        android:layout_width="20dp"
+                        android:layout_height="20dp"
+                        android:src="@drawable/baseline_arrow_forward_ios_24"
+                        android:tint="?attr/hintTextColor" />
+                </LinearLayout>
 
-                <TextView
-                    android:layout_width="0dp"
+                <LinearLayout
+                    android:id="@+id/option_rate_support"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:layout_marginStart="16dp"
-                    android:text="Settings"
-                    android:textColor="?attr/textColor"
-                    android:textSize="16sp" />
+                    android:orientation="horizontal"
+                    android:paddingVertical="12dp">
 
-                <ImageView
-                    android:layout_width="20dp"
-                    android:layout_height="20dp"
-                    android:src="@drawable/baseline_arrow_forward_ios_24"
-                    android:tint="?attr/hintTextColor" />
-            </LinearLayout>
+                    <ImageView
+                        android:layout_width="24dp"
+                        android:layout_height="24dp"
+                        android:src="@drawable/rate_01" />
 
-            <LinearLayout
-                android:id="@+id/option_daily_reminder"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="horizontal"
-                android:paddingVertical="12dp">
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:layout_marginStart="16dp"
+                        android:text="Rate and Support"
+                        android:textColor="?attr/textColor"
+                        android:textSize="16sp" />
 
-                <ImageView
-                    android:layout_width="24dp"
-                    android:layout_height="24dp"
-                    android:src="@drawable/clock01"
-                     />
+                    <ImageView
+                        android:layout_width="20dp"
+                        android:layout_height="20dp"
+                        android:src="@drawable/baseline_arrow_forward_ios_24"
+                        android:tint="?attr/hintTextColor" />
+                </LinearLayout>
 
-                <TextView
-                    android:layout_width="0dp"
+                <LinearLayout
+                    android:id="@+id/option_settings"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:layout_marginStart="16dp"
-                    android:text="Daily Expense Reminder"
-                    android:textColor="?attr/textColor"
-                    android:textSize="16sp" />
+                    android:orientation="horizontal"
+                    android:paddingVertical="12dp">
 
-                <Switch
-                    android:id="@+id/switch_daily_reminder"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content" />
+                    <ImageView
+                        android:layout_width="24dp"
+                        android:layout_height="24dp"
+                        android:src="@drawable/setting" />
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:layout_marginStart="16dp"
+                        android:text="Settings"
+                        android:textColor="?attr/textColor"
+                        android:textSize="16sp" />
+
+                    <ImageView
+                        android:layout_width="20dp"
+                        android:layout_height="20dp"
+                        android:src="@drawable/baseline_arrow_forward_ios_24"
+                        android:tint="?attr/hintTextColor" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/option_daily_reminder"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:paddingVertical="12dp">
+
+                    <ImageView
+                        android:layout_width="24dp"
+                        android:layout_height="24dp"
+                        android:src="@drawable/clock01" />
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:layout_marginStart="16dp"
+                        android:text="Daily Expense Reminder"
+                        android:textColor="?attr/textColor"
+                        android:textSize="16sp" />
+
+                    <Switch
+                        android:id="@+id/switch_daily_reminder"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content" />
+                </LinearLayout>
+
+                <!-- Export Data Option -->
+                <LinearLayout
+                    android:id="@+id/option_export_data"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:paddingVertical="12dp">
+
+                    <ImageView
+                        android:layout_width="24dp"
+                        android:layout_height="24dp"
+                        android:src="@drawable/export_icon" />
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:layout_marginStart="16dp"
+                        android:text="Export Data"
+                        android:textColor="?attr/textColor"
+                        android:textSize="16sp" />
+
+                    <ImageView
+                        android:layout_width="20dp"
+                        android:layout_height="20dp"
+                        android:src="@drawable/baseline_arrow_forward_ios_24"
+                        android:tint="?attr/hintTextColor" />
+                </LinearLayout>
+
+                <!-- Import Data Option -->
+                <LinearLayout
+                    android:id="@+id/option_import_data"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:paddingVertical="12dp">
+
+                    <ImageView
+                        android:layout_width="24dp"
+                        android:layout_height="24dp"
+                        android:src="@drawable/import_icon" />
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:layout_marginStart="16dp"
+                        android:text="Import Data"
+                        android:textColor="?attr/textColor"
+                        android:textSize="16sp" />
+
+                    <ImageView
+                        android:layout_width="20dp"
+                        android:layout_height="20dp"
+                        android:src="@drawable/baseline_arrow_forward_ios_24"
+                        android:tint="?attr/hintTextColor" />
+                </LinearLayout>
             </LinearLayout>
-        </LinearLayout>
+        </ScrollView>
     </LinearLayout>
 </layout>

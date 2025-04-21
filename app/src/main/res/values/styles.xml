@@ -1,5 +1,57 @@
-<?xml version="1.0" encoding="utf-8"?>
 <resources>
+    <!-- Base application theme -->
+    <style name="AppTheme" parent="Theme.AppCompat.Light.DarkActionBar">
+        <!-- Customize your theme here -->
+    </style>
 
+    <!-- Custom Dialog Style -->
+    <style name="CustomDialogTheme" parent="Theme.AppCompat.Light.Dialog.Alert">
+        <item name="android:background">@drawable/dialog_background</item>
+        <item name="android:windowBackground">@android:color/transparent</item>
+        <item name="android:windowContentOverlay">@null</item>
+        <item name="android:textColorPrimary">?attr/textColor</item> <!-- Title text color -->
 
+        <!-- For AppCompat AlertDialog -->
+        <item name="buttonBarPositiveButtonStyle">@style/DialogPositiveButtonStyle</item>
+        <item name="buttonBarNegativeButtonStyle">@style/DialogNegativeButtonStyle</item>
+        <item name="alertDialogTheme">@style/CustomAlertDialogTheme</item>
+
+        <!-- For Material Components (if using) -->
+        <item name="materialAlertDialogTheme">@style/CustomMaterialAlertDialog</item>
+    </style>
+
+    <!-- Custom AlertDialog theme for title styling -->
+    <style name="CustomAlertDialogTheme" parent="ThemeOverlay.AppCompat.Dialog.Alert">
+        <item name="android:textColorPrimary">?attr/textColor</item> <!-- Title text color -->
+        <item name="android:textSize">18sp</item> <!-- Optional: title text size -->
+    </style>
+
+    <!-- Material Components AlertDialog customization -->
+    <style name="CustomMaterialAlertDialog" parent="ThemeOverlay.MaterialComponents.MaterialAlertDialog">
+        <item name="buttonBarPositiveButtonStyle">@style/DialogPositiveButtonStyle</item>
+        <item name="buttonBarNegativeButtonStyle">@style/DialogNegativeButtonStyle</item>
+        <item name="materialAlertDialogTitleTextStyle">@style/CustomAlertDialogTitle</item>
+    </style>
+
+    <!-- Custom title style for Material Components -->
+    <style name="CustomAlertDialogTitle" parent="MaterialAlertDialog.MaterialComponents.Title.Text">
+        <item name="android:textColor">?attr/textColor</item>
+        <item name="android:textSize">18sp</item> <!-- Optional: title text size -->
+    </style>
+
+    <!-- Positive Button (Save) Style -->
+    <style name="DialogPositiveButtonStyle" parent="Widget.AppCompat.Button.ButtonBar.AlertDialog">
+        <item name="android:textColor">?attr/textColor</item>
+        <item name="android:background">@android:color/transparent</item>
+        <!-- For Material Components -->
+        <item name="backgroundTint">@android:color/transparent</item>
+    </style>
+
+    <!-- Negative Button (Cancel) Style -->
+    <style name="DialogNegativeButtonStyle" parent="Widget.AppCompat.Button.ButtonBar.AlertDialog">
+        <item name="android:textColor">?attr/hintTextColor</item>
+        <item name="android:background">@android:color/transparent</item>
+        <!-- For Material Components -->
+        <item name="backgroundTint">@android:color/transparent</item>
+    </style>
 </resources>

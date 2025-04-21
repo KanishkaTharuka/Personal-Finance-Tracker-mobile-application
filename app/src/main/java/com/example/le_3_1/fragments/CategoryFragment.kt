@@ -1,6 +1,7 @@
 package com.example.le_3_1.fragments
 
 import android.os.Bundle
+import android.util.Log
 import android.util.TypedValue
 import android.view.LayoutInflater
 import android.view.View
@@ -150,6 +151,11 @@ class CategoryFragment : Fragment() {
     private fun updateCategories(transactions: List<Transaction>) {
         // Define all possible categories
         val allCategories = listOf("Food", "Transport", "Gift", "Other", "Bills", "Salary")
+
+        // Log all transactions to debug
+        transactions.forEach { transaction ->
+            Log.d("CategoryFragment", "Transaction: id=${transaction.id}, category=${transaction.category}, type=${transaction.type}, amount=${transaction.amount}")
+        }
 
         // Calculate total expenses for each category
         val expenseCategories = allCategories.map { categoryName ->

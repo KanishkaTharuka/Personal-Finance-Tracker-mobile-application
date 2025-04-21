@@ -40,8 +40,30 @@ class TransactionViewModel : ViewModel() {
 
     fun addTransaction(transaction: Transaction, context: Context) {
         val currentList = transactions.value ?: mutableListOf()
-        currentList.add(transaction)
+        // Generate a unique ID for the new transaction
+        val newId = if (currentList.isEmpty()) 1L else currentList.maxOf { it.id } + 1
+        val transactionWithId = transaction.copy(id = newId)
+        currentList.add(transactionWithId)
         transactions.postValue(currentList)
+        savePreferences(context)
+        checkBudgetAndNotify(context)
+    }
+
+    fun editTransaction(updatedTransaction: Transaction, context: Context) {
+        val currentList = transactions.value ?: mutableListOf()
+        val index = currentList.indexOfFirst { it.id == updatedTransaction.id }
+        if (index != -1) {
+            currentList[index] = updatedTransaction
+            transactions.postValue(currentList)
+            savePreferences(context)
+            checkBudgetAndNotify(context)
+        }
+    }
+
+    fun deleteTransaction(transactionId: Long, context: Context) {
+        val currentList = transactions.value ?: mutableListOf()
+        val updatedList = currentList.filter { it.id != transactionId }.toMutableList()
+        transactions.postValue(updatedList)
         savePreferences(context)
         checkBudgetAndNotify(context)
     }

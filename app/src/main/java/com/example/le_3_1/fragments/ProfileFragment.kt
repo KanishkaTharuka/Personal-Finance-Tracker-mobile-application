@@ -109,7 +109,7 @@ class ProfileFragment : Fragment() {
         val currentCurrency = viewModel.getCurrency(requireContext())
         spinner.setSelection(currencies.indexOf(currentCurrency))
 
-        androidx.appcompat.app.AlertDialog.Builder(requireContext())
+        androidx.appcompat.app.AlertDialog.Builder(requireContext(), R.style.CustomDialogTheme)
             .setTitle("Select Currency")
             .setView(dialogView)
             .setPositiveButton("Save") { _, _ ->

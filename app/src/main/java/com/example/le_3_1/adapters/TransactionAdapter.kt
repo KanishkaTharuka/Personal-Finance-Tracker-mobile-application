@@ -7,10 +7,18 @@ import com.example.le_3_1.R
 import com.example.le_3_1.databinding.ItemTransactionBinding
 import com.example.le_3_1.models.Transaction
 
-class TransactionAdapter(private val transactions: MutableList<Transaction>) :
+class TransactionAdapter(
+    private val transactions: MutableList<Transaction>,
+    private val onEditClick: (Transaction) -> Unit,
+    private val onDeleteClick: (Long) -> Unit
+    ) :
     RecyclerView.Adapter<TransactionAdapter.ViewHolder>() {
 
-    class ViewHolder(private val binding: ItemTransactionBinding) :
+    class ViewHolder(
+        private val binding: ItemTransactionBinding,
+        private val onEditClick: (Transaction) -> Unit,
+        private val onDeleteClick: (Long) -> Unit
+    ) :
         RecyclerView.ViewHolder(binding.root) {
 
         fun bind(transaction: Transaction) {
@@ -25,6 +33,12 @@ class TransactionAdapter(private val transactions: MutableList<Transaction>) :
                     if (transaction.type == "Income") R.color.green else R.color.red
                 )
             )
+            binding.btnEdit.setOnClickListener {
+                onEditClick(transaction)
+            }
+            binding.btnDelete.setOnClickListener {
+                onDeleteClick(transaction.id)
+            }
         }
     }
 
@@ -32,7 +46,7 @@ class TransactionAdapter(private val transactions: MutableList<Transaction>) :
         val binding = ItemTransactionBinding.inflate(
             LayoutInflater.from(parent.context), parent, false
         )
-        return ViewHolder(binding)
+        return ViewHolder(binding, onEditClick, onDeleteClick)
     }
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
