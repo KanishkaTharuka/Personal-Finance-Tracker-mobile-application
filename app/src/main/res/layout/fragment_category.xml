@@ -12,7 +12,7 @@
             android:id="@+id/tv_header"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Categories"
+            android:text="@string/categories"
             android:textColor="?attr/textColor"
             android:textSize="24sp"
             android:textStyle="bold"
@@ -44,7 +44,7 @@
                 android:id="@+id/tv_expense_label"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Expenses"
+                android:text="@string/expenses"
                 android:textColor="?attr/textColor"
                 android:textSize="16sp"
                 android:textStyle="bold" />
@@ -72,7 +72,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="16dp"
-                android:text="Income"
+                android:text="@string/income"
                 android:textColor="?attr/textColor"
                 android:textSize="16sp"
                 android:textStyle="bold" />

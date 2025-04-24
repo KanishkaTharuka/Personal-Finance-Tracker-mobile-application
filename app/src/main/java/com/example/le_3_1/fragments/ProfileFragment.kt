@@ -13,6 +13,12 @@ import com.example.le_3_1.NotificationHelper
 import com.example.le_3_1.R
 import com.example.le_3_1.TransactionViewModel
 import com.example.le_3_1.databinding.FragmentProfileBinding
+import com.example.le_3_1.models.Transaction
+import org.json.JSONArray
+import org.json.JSONObject
+import java.io.File
+import java.io.FileInputStream
+import java.io.FileOutputStream
 
 class ProfileFragment : Fragment() {
 
@@ -95,7 +101,100 @@ class ProfileFragment : Fragment() {
         binding.switchTheme.setOnCheckedChangeListener { _, isChecked ->
             (activity as? MainActivity)?.updateTheme(isChecked)
         }
+
+        // Export Data Button
+        binding.optionExportData.setOnClickListener {
+            exportData()
+        }
+
+        // Import Data Button
+        binding.optionImportData.setOnClickListener {
+            importData()
+        }
     }
+
+    private fun exportData() {
+        try {
+            // Get all transactions from ViewModel
+            val transactions = viewModel.transactions.value ?: emptyList()
+            if (transactions.isEmpty()) {
+                Toast.makeText(context, "No transactions to export", Toast.LENGTH_SHORT).show()
+                return
+            }
+
+            // Convert transactions to JSON
+            val jsonArray = JSONArray()
+            transactions.forEach { transaction ->
+                val jsonObject = JSONObject().apply {
+                    put("id", transaction.id)
+                    put("amount", transaction.amount)
+                    put("title", transaction.title)
+                    put("category", transaction.category)
+                    put("date", transaction.date)
+                    put("type", transaction.type)
+                }
+                jsonArray.put(jsonObject)
+            }
+
+            // Write JSON to a file in internal storage
+            val fileName = "transaction_backup.json"
+            val file = File(requireContext().filesDir, fileName)
+            FileOutputStream(file).use { outputStream ->
+                outputStream.write(jsonArray.toString().toByteArray())
+            }
+
+            Toast.makeText(context, "Data exported to $fileName", Toast.LENGTH_LONG).show()
+        } catch (e: Exception) {
+            Toast.makeText(context, "Failed to export data: ${e.message}", Toast.LENGTH_LONG).show()
+            e.printStackTrace()
+        }
+    }
+
+    private fun importData() {
+        try {
+            // Read the backup file from internal storage
+            val fileName = "transaction_backup.json"
+            val file = File(requireContext().filesDir, fileName)
+
+            if (!file.exists()) {
+                Toast.makeText(context, "No backup file found", Toast.LENGTH_SHORT).show()
+                return
+            }
+
+            // Read JSON from file
+            val jsonString = FileInputStream(file).use { inputStream ->
+                inputStream.readBytes().toString(Charsets.UTF_8)
+            }
+
+            // Parse JSON and convert to transactions
+            val jsonArray = JSONArray(jsonString)
+            val transactions = mutableListOf<Transaction>()
+            for (i in 0 until jsonArray.length()) {
+                val jsonObject = jsonArray.getJSONObject(i)
+                val transaction = Transaction(
+                    id = jsonObject.getLong("id"),
+                    amount = jsonObject.getDouble("amount"),
+                    title = jsonObject.getString("title"),
+                    category = jsonObject.getString("category"),
+                    date = jsonObject.getString("date"),
+                    type = jsonObject.getString("type")
+                )
+                transactions.add(transaction)
+            }
+
+            // Add transactions to ViewModel (this will update the database)
+            transactions.forEach { transaction ->
+                viewModel.addTransaction(transaction, requireContext())
+            }
+
+            Toast.makeText(context, "Data imported successfully", Toast.LENGTH_LONG).show()
+        } catch (e: Exception) {
+            Toast.makeText(context, "Failed to import data: ${e.message}", Toast.LENGTH_LONG).show()
+            e.printStackTrace()
+        }
+    }
+
+
 
     private fun showCurrencyDialog() {
         val dialogView = LayoutInflater.from(context).inflate(R.layout.dialog_currency, null)

@@ -12,7 +12,7 @@
             android:id="@+id/tv_header"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Financial Overview"
+            android:text="@string/Financial_Overview"
             android:textColor="?attr/textColor"
             android:textSize="24sp"
             android:textStyle="bold"
@@ -50,7 +50,7 @@
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="Total Income"
+                        android:text="@string/total_income"
                         android:textColor="?attr/textColor"
                         android:textSize="14sp"
                         android:textStyle="bold" />
@@ -60,7 +60,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="8dp"
-                        android:text="LKR 0"
+                        android:text="@string/LKR_0"
                         android:textColor="@color/green"
                         android:textSize="16sp"
                         android:textStyle="bold" />
@@ -87,7 +87,7 @@
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="Total Expenses"
+                        android:text="@string/total_expenses"
                         android:textColor="?attr/textColor"
                         android:textSize="14sp"
                         android:textStyle="bold"
@@ -98,7 +98,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="8dp"
-                        android:text="LKR 0"
+                        android:text="@string/LKR_0"
                         android:textColor="@color/red"
                         android:textSize="16sp"
                         android:textStyle="bold"

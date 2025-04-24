@@ -1,11 +1,15 @@
 package com.example.le_3_1
 
 import android.Manifest
+import android.animation.ObjectAnimator
 import android.content.pm.PackageManager
 import android.os.Build
 import android.os.Bundle
+import android.view.View
+import android.view.animation.AccelerateInterpolator
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.appcompat.app.AppCompatActivity
+import androidx.core.animation.doOnEnd
 import androidx.core.content.ContextCompat
 import androidx.fragment.app.Fragment
 import com.example.le_3_1.databinding.ActivityMainBinding
@@ -14,6 +18,12 @@ import com.example.le_3_1.fragments.AllTransactionFragment
 import com.example.le_3_1.fragments.CategoryFragment
 import com.example.le_3_1.fragments.GraphFragment
 import com.example.le_3_1.fragments.ProfileFragment
+
+import androidx.core.splashscreen.SplashScreen.Companion.installSplashScreen
+import androidx.lifecycle.lifecycleScope
+import kotlinx.coroutines.NonCancellable.start
+import kotlinx.coroutines.delay
+import kotlinx.coroutines.launch
 
 class MainActivity : AppCompatActivity() {
 
@@ -35,12 +45,37 @@ class MainActivity : AppCompatActivity() {
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {
+
+        val splashScreen = installSplashScreen()
+
         super.onCreate(savedInstanceState)
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        //disable the up icon in the ActionBar
-        supportActionBar?.setDisplayHomeAsUpEnabled(false)
+        var keepSplashOnScreen = true
+        splashScreen.setKeepOnScreenCondition { keepSplashOnScreen }
+
+        splashScreen.setOnExitAnimationListener { splashScreenView ->
+            // Your animation code (example: fade out)
+            ObjectAnimator.ofFloat(
+                splashScreenView.iconView,
+                View.ALPHA,
+                1f,
+                0f
+            ).apply {
+                duration = 500L
+                interpolator = AccelerateInterpolator()
+                doOnEnd { splashScreenView.remove() }
+                start()
+            }
+        }
+
+        lifecycleScope.launch {
+            delay(1000) // Simulate data loading
+            keepSplashOnScreen = false // Allow splash screen to hide
+        }
+
+
 
         val viewModel = TransactionViewModel()
         if (viewModel.getCurrency(this) == "LKR") {

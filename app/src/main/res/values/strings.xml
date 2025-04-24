@@ -1,9 +1,44 @@
 <resources>
-    <string name="app_name">Personal Finance Tracker</string>
+    <string name="app_name">Fin Track</string>
     <string name="all_transaction">All</string>
     <string name="graph">Graph</string>
     <string name="add_transaction">Add</string>
-    <string name="category">Category</string>
+    <string name="categories">Categories</string>
     <string name="profile">Profile</string>
+    <string name="title">Title</string>
+    <string name="amount">Amount</string>
+    <string name="date">Date (dd/MM/yyyy)</string>
+
+    <string name="all_transactions">All Transactions</string>
+    <string name="income_0">Income: 0.00</string>
+    <string name="expense_0">Expenses: 0.00</string>
+    
+    <string name="Set_Monthly_Budget">Set Monthly Budget</string>
+    <string name="Enter_Budget">Enter Budget (LKR)</string>
+    <string name="Expenses_Budget">Expenses: 0% of Budget</string>
+    
+    <string name="expenses">Expenses</string>
+    <string name="income">Income</string>
+    
+    <string name="Financial_Overview">Financial Overview</string>
+    <string name="total_income">Total Income</string>
+    <string name="total_expenses">Total Expenses</string>
+    <string name="LKR_0">LKR 0</string>
+
+    <string name="name">Kanishka Tharuka</string>
+    <string name="email">Kkanishka@gmail.com</string>
+
+    <string name="theme">Theme</string>
+    <string name="language">Language</string>
+    <string name="currency">Currency</string>
+    <string name="monthly_budget">Monthly Budget</string>
+    <string name="change_pw">Change Password</string>
+    <string name="feedback">Feedback</string>
+    <string name="rate_and_support">Rate and Support</string>
+    <string name="setting">Settings</string>
+    <string name="daily_expense_reminder">Daily Expense Reminder</string>
+    <string name="export_data">Export Data</string>
+    <string name="import_data">Import Data</string>
+
 </resources>
 

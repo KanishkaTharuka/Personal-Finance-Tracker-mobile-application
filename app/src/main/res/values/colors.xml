@@ -8,7 +8,7 @@
     <color name="green">#00C853</color>           <!-- Accent for income/checkmark -->
 
     <!-- Dark Theme -->
-    <color name="dark_gray">#181818</color>        <!-- 60% Primary -->
+        <color name="dark_gray">#181818</color>        <!-- 60% Primary -->
     <color name="medium_dark_gray">#2D2D2D</color> <!-- 30% Secondary -->
     <color name="white_accent">#FFFFFF</color>     <!-- 10% Accent -->
     <color name="red">#FF5252</color>             <!-- Accent for expenses -->

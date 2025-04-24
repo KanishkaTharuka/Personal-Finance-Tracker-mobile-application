@@ -149,7 +149,7 @@ class AddTransactionFragment : Fragment() {
 
         // Create a transaction with a temporary ID (will be overwritten by TransactionViewModel)
         val transaction = Transaction(
-            id = 0L,  // Temporary ID
+            id = 0L,
             amount = amount,
             title = title,
             category = category,

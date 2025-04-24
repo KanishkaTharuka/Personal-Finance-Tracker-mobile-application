@@ -12,7 +12,7 @@
             android:id="@+id/tv_header"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="All Transactions"
+            android:text="@string/all_transactions"
             android:textColor="?attr/textColor"
             android:textSize="24sp"
             android:textStyle="bold"
@@ -46,7 +46,7 @@
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:text="Income: 0.00"
+                android:text="@string/income_0"
                 android:textColor="?attr/incomeColor"
                 android:textSize="16sp" />
 
@@ -55,7 +55,7 @@
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:text="Expenses: 0.00"
+                android:text="@string/expense_0"
                 android:textColor="?attr/expenseColor"
                 android:textSize="16sp" />
         </LinearLayout>

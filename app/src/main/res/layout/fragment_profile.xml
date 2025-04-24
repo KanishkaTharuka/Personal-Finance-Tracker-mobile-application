@@ -12,33 +12,52 @@
         <!-- Profile Section -->
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="280dp"
             android:orientation="vertical"
             android:padding="16dp"
             android:gravity="center_horizontal"
-            android:background="@drawable/gradient_background">
+            android:background="@drawable/back01_01">
 
             <ImageView
                 android:id="@+id/tvProfileInitial"
                 android:layout_width="175dp"
-                android:layout_height="142dp"
-                android:src="@drawable/profile" />
+                android:layout_height="175dp"
+                android:src="@drawable/profile"
+                android:background="@drawable/circle_shape"
+                android:clipToOutline="true"
+                android:scaleType="centerCrop" />
 
-            <TextView
-                android:id="@+id/tv_username"
+            <LinearLayout
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="8dp"
-                android:text="Kanishka Tharuka"
-                android:textColor="@color/white"
-                android:textSize="20sp" />
+                android:orientation="horizontal"
+                android:gravity="center_vertical"
+                android:layout_marginTop="8dp">
+
+                <TextView
+                    android:id="@+id/tv_username"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/name"
+                    android:textColor="@color/white"
+                    android:textSize="20sp" />
+
+                <ImageView
+                    android:id="@+id/edit_username_icon"
+                    android:layout_width="24dp"
+                    android:layout_height="24dp"
+                    android:layout_marginStart="8dp"
+                    android:src="@android:drawable/ic_menu_edit"
+
+                    android:contentDescription="Edit username" />
+            </LinearLayout>
 
             <TextView
                 android:id="@+id/tv_email"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="4dp"
-                android:text="kanishkatharuka@gmail.com"
+                android:text="@string/email"
                 android:textColor="@color/white"
                 android:textSize="16sp" />
         </LinearLayout>
@@ -75,7 +94,7 @@
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
                         android:layout_marginStart="16dp"
-                        android:text="Dark Theme"
+                        android:text="@string/theme"
                         android:textColor="?attr/textColor"
                         android:textSize="16sp" />
 
@@ -102,7 +121,7 @@
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
                         android:layout_marginStart="16dp"
-                        android:text="Language"
+                        android:text="@string/language"
                         android:textColor="?attr/textColor"
                         android:textSize="16sp" />
 
@@ -158,7 +177,7 @@
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
                         android:layout_marginStart="16dp"
-                        android:text="Monthly Budget"
+                        android:text="@string/monthly_budget"
                         android:textColor="?attr/textColor"
                         android:textSize="16sp" />
 
@@ -186,7 +205,7 @@
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
                         android:layout_marginStart="16dp"
-                        android:text="Change Password"
+                        android:text="@string/change_pw"
                         android:textColor="?attr/textColor"
                         android:textSize="16sp" />
 
@@ -214,7 +233,7 @@
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
                         android:layout_marginStart="16dp"
-                        android:text="Feedback"
+                        android:text="@string/feedback"
                         android:textColor="?attr/textColor"
                         android:textSize="16sp" />
 
@@ -242,7 +261,7 @@
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
                         android:layout_marginStart="16dp"
-                        android:text="Rate and Support"
+                        android:text="@string/rate_and_support"
                         android:textColor="?attr/textColor"
                         android:textSize="16sp" />
 
@@ -270,7 +289,7 @@
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
                         android:layout_marginStart="16dp"
-                        android:text="Settings"
+                        android:text="@string/setting"
                         android:textColor="?attr/textColor"
                         android:textSize="16sp" />
 
@@ -298,7 +317,7 @@
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
                         android:layout_marginStart="16dp"
-                        android:text="Daily Expense Reminder"
+                        android:text="@string/daily_expense_reminder"
                         android:textColor="?attr/textColor"
                         android:textSize="16sp" />
 
@@ -319,14 +338,14 @@
                     <ImageView
                         android:layout_width="24dp"
                         android:layout_height="24dp"
-                        android:src="@drawable/export_icon" />
+                        android:src="@drawable/export_01" />
 
                     <TextView
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
                         android:layout_marginStart="16dp"
-                        android:text="Export Data"
+                        android:text="@string/export_data"
                         android:textColor="?attr/textColor"
                         android:textSize="16sp" />
 
@@ -348,14 +367,14 @@
                     <ImageView
                         android:layout_width="24dp"
                         android:layout_height="24dp"
-                        android:src="@drawable/import_icon" />
+                        android:src="@drawable/import_01" />
 
                     <TextView
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
                         android:layout_marginStart="16dp"
-                        android:text="Import Data"
+                        android:text="@string/import_data"
                         android:textColor="?attr/textColor"
                         android:textSize="16sp" />
 

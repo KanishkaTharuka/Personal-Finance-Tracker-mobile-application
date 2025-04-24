@@ -95,6 +95,7 @@ class AllTransactionFragment : Fragment() {
 
             val datePickerDialog = DatePickerDialog(
                 requireContext(),
+
                 { _, selectedYear, selectedMonth, selectedDay ->
                     calendar.set(selectedYear, selectedMonth, selectedDay)
                     etDate.setText(dateFormat.format(calendar.time))

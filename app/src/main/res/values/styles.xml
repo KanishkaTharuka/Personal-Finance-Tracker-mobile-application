@@ -4,6 +4,13 @@
         <!-- Customize your theme here -->
     </style>
 
+    <style name="Theme.LE_3_1.Splash" parent="Theme.SplashScreen">
+        <item name="windowSplashScreenBackground">@color/dark_gray</item>
+        <item name="windowSplashScreenAnimatedIcon">@mipmap/ic_launcher</item>
+        <item name="windowSplashScreenAnimationDuration">500</item>
+        <item name="postSplashScreenTheme">@style/Theme.LE_3_1</item>
+    </style>
+
     <!-- Custom Dialog Style -->
     <style name="CustomDialogTheme" parent="Theme.AppCompat.Light.Dialog.Alert">
         <item name="android:background">@drawable/dialog_background</item>
@@ -26,14 +33,14 @@
         <item name="android:textSize">18sp</item> <!-- Optional: title text size -->
     </style>
 
-    <!-- Material Components AlertDialog customization -->
+    <!-- AlertDialog customization -->
     <style name="CustomMaterialAlertDialog" parent="ThemeOverlay.MaterialComponents.MaterialAlertDialog">
         <item name="buttonBarPositiveButtonStyle">@style/DialogPositiveButtonStyle</item>
         <item name="buttonBarNegativeButtonStyle">@style/DialogNegativeButtonStyle</item>
         <item name="materialAlertDialogTitleTextStyle">@style/CustomAlertDialogTitle</item>
     </style>
 
-    <!-- Custom title style for Material Components -->
+    <!--  title  -->
     <style name="CustomAlertDialogTitle" parent="MaterialAlertDialog.MaterialComponents.Title.Text">
         <item name="android:textColor">?attr/textColor</item>
         <item name="android:textSize">18sp</item> <!-- Optional: title text size -->

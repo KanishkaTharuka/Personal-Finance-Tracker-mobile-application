@@ -1,9 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
-<resources>
+<resources xmlns:tools="http://schemas.android.com/tools">
     <!-- Dark Theme -->
     <style name="Theme.LE_3_1" parent="Theme.Material3.DayNight.NoActionBar">
         <!-- Window background -->
         <item name="android:windowBackground">@color/dark_gray</item>
+
+        <!-- System bar colors -->
+        <item name="android:statusBarColor">@color/dark_gray</item>
+        <item name="android:windowLightStatusBar">false</item>
+        <item name="android:navigationBarColor">@color/dark_gray</item>
+        <item name="android:windowLightNavigationBar" tools:targetApi="27">false</item>
 
         <!-- Custom attributes for 60-30-10 rule -->
         <item name="backgroundColor">@color/dark_gray</item>
@@ -14,7 +20,5 @@
         <item name="incomeColor">@color/green</item>
         <item name="expenseColor">@color/red</item>
         <item name="iconTintColor">@color/blue</item>
-
-
     </style>
 </resources>
